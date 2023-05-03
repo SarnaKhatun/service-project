@@ -47,6 +47,8 @@
 
     {{-- custom css  --}}
     <link rel="stylesheet" href="{{ asset('backend/css/eastland.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 </head>
 
 <body class="crm_body_bg">

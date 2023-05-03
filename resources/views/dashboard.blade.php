@@ -39,9 +39,40 @@
                                 </div>
                             </div>
                         </form>
+                        <hr>
+                        <form action="">
+                            <div class="row mt-3">
+                                <label for="" class="col-md-4">
+                                    <textarea name="question" id="" class="form-control"></textarea>
+                                </label>
+                                <div class="col-md-8">
+                                    <select id="select_box">
+                                        <option value="">Select One</option>
+                                        <option value="short_ans" >Short answer</option>
+                                        <option value="paragraph" id="ut">paragraph</option>
+                                        <option value="multiple_choice">Multiple Choice</option>
+                                        <option value="checkbox">Checkbox</option>
+                                        <option value="dropdown">Dropdown</option>
+                                        <option value="file_upload">File Upload</option>
+                                        <option value="date">Date</option>
+                                        <option value="time">Time</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                           <input type="text" id="show_only">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        $(document).ready(function () {
+            $('#select_box').change(function() {
+                $('#show_only').val(this.value);
+            });
+        });
+    </script>
 @endsection
