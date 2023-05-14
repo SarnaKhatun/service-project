@@ -4,6 +4,14 @@
 @endsection
 
 @section('body')
+
+{{--    <span class="no_wrap language_change_section">--}}
+{{--                            <img class="mri-5" src="{{ asset('images/icon/earth_icon_white.png') }}" alt="">--}}
+{{--                            <span>{{ app()->getLocale() == 'en' ? 'English' : 'বাংলা' }}</span>--}}
+{{--                            <img src="{{ asset('images/icon/arrow_icon_white.png') }}" alt="">--}}
+{{--                        </span>--}}
+
+
     <section class="py-5">
         <div class="container">
             <div class="row">
@@ -15,7 +23,14 @@
                         <form action="{{route('store.service')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mt-3">
-                                <label for="" class="col-md-4">Service Name:</label>
+                                <label for="" class="col-md-4">Service Name English:</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="service_name" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <label for="" class="col-md-4">Service Name Bangla:</label>
                                 <div class="col-md-8">
                                     <input type="text" name="service_name" class="form-control">
                                 </div>
@@ -60,7 +75,12 @@
                                 </div>
 
                             </div>
-                           <input type="text" id="show_only">
+                            <div >
+                                <input type="text" id="show_only" >
+                            </div>
+                           <input type="checkbox" id="add_to_my_library_option_list2" style="display: none">
+
+
                         </form>
                     </div>
                 </div>
@@ -73,6 +93,11 @@
             $('#select_box').change(function() {
                 $('#show_only').val(this.value);
             });
+        });
+
+
+        $("#show_only").on("click", function () {
+            $("#add_to_my_library_option_list2").toggle();
         });
     </script>
 @endsection
