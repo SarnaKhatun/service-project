@@ -63,22 +63,23 @@
                                 <div class="col-md-8">
                                     <select id="select_box">
                                         <option value="">Select One</option>
-                                        <option value="short_ans" >Short answer</option>
+                                        <option value="short_ans"  id="short">Short answer</option>
                                         <option value="paragraph" id="ut">paragraph</option>
-                                        <option value="multiple_choice">Multiple Choice</option>
-                                        <option value="checkbox">Checkbox</option>
-                                        <option value="dropdown">Dropdown</option>
-                                        <option value="file_upload">File Upload</option>
-                                        <option value="date">Date</option>
-                                        <option value="time">Time</option>
+                                        <option value="multiple_choice" id="">Multiple Choice</option>
+                                        <option value="checkbox" id="">Checkbox</option>
+                                        <option value="dropdown" id="">Dropdown</option>
+                                        <option value="file_upload" id="">File Upload</option>
+                                        <option value="date" id="">Date</option>
+                                        <option value="time" id="">Time</option>
                                     </select>
                                 </div>
 
                             </div>
                             <div >
                                 <input type="text" id="show_only" >
+                                <input type="text" id="textt">
                             </div>
-                           <input type="checkbox" id="add_to_my_library_option_list2" style="display: none">
+
 
 
                         </form>
@@ -88,59 +89,14 @@
         </div>
     </section>
 
-<section>
-
-    <input type='text' class='calc' id='txt1'>
-    <input type='text' class='calc' id='txt2'>
-    <input type='text' id='txt3' readonly>
-
-</section>
-
-
 
 <script>
-    function myFunction() {
-        // Create a new form, then add a checkbox question, a multiple choice question,
-        // a page break, then a date question and a grid of questions.
-        var form = FormApp.create('Sample Form');
-        var sect1 = form.addSectionHeaderItem();
-        var item = form.addCheckboxItem();
-        item.setTitle('What condiments would you like on your hot dog?');
-        item.setChoices([item.createChoice('Ketchup'), item.createChoice('Mustard'), item.createChoice('Relish')]);
-        var item2 = form.addMultipleChoiceItem().setTitle('Do you prefer cats or dogs?');
-        //    .setChoiceValues(['Cats','Dogs'])
-        //    .showOtherOption(true);
-        var sect2 = form.addSectionHeaderItem();
-        form.addPageBreakItem().setTitle('Getting to know you');
-        form.addDateItem().setTitle('When were you born?');
-        var sect3 = form.addSectionHeaderItem();
-        var break2 = form.addPageBreakItem().setTitle('Getting to know you 2');
-
-        var choice1 = item2.createChoice('cat', FormApp.PageNavigationType.CONTINUE);
-        var choice2 = item2.createChoice('dog', break2);
-        item2.setChoices([choice1, choice2]);
-
-        form.addGridItem().setTitle('Rate your interests').setRows(['Cars', 'Computers', 'Celebrities']).setColumns(['Boring', 'So-so', 'Interesting']);
-        Logger.log('Published URL: ' + form.getPublishedUrl());
-        Logger.log('Editor URL: ' + form.getEditUrl());
+    var shortAns = document.getElementById('short');
+    shortAns.onclick = function () {
+        event.preventDefault();
+        var textt = document.getElementById('textt');
+        textt.innerHTML.valueOf();
     }
-</script>
-
-<script>
-
-    $(document).ready(function() {
-        $('.calc').on('input', function() {
-            var t1 = document.getElementById('txt1');
-            var t2 = document.getElementById('txt2');
-            var tot=0;
-            if (parseInt(t1.value))
-                tot += parseInt(t1.value);
-            if (parseInt(t2.value))
-                tot += parseInt(t2.value);
-            document.getElementById('txt3').value = tot;
-        });
-    });
-
 </script>
 
     <script>
@@ -151,9 +107,5 @@
             });
         });
 
-
-        $("#show_only").on("click", function () {
-            $("#add_to_my_library_option_list2").toggle();
-        });
     </script>
 @endsection
