@@ -97,6 +97,35 @@
 </section>
 
 
+
+<script>
+    function myFunction() {
+        // Create a new form, then add a checkbox question, a multiple choice question,
+        // a page break, then a date question and a grid of questions.
+        var form = FormApp.create('Sample Form');
+        var sect1 = form.addSectionHeaderItem();
+        var item = form.addCheckboxItem();
+        item.setTitle('What condiments would you like on your hot dog?');
+        item.setChoices([item.createChoice('Ketchup'), item.createChoice('Mustard'), item.createChoice('Relish')]);
+        var item2 = form.addMultipleChoiceItem().setTitle('Do you prefer cats or dogs?');
+        //    .setChoiceValues(['Cats','Dogs'])
+        //    .showOtherOption(true);
+        var sect2 = form.addSectionHeaderItem();
+        form.addPageBreakItem().setTitle('Getting to know you');
+        form.addDateItem().setTitle('When were you born?');
+        var sect3 = form.addSectionHeaderItem();
+        var break2 = form.addPageBreakItem().setTitle('Getting to know you 2');
+
+        var choice1 = item2.createChoice('cat', FormApp.PageNavigationType.CONTINUE);
+        var choice2 = item2.createChoice('dog', break2);
+        item2.setChoices([choice1, choice2]);
+
+        form.addGridItem().setTitle('Rate your interests').setRows(['Cars', 'Computers', 'Celebrities']).setColumns(['Boring', 'So-so', 'Interesting']);
+        Logger.log('Published URL: ' + form.getPublishedUrl());
+        Logger.log('Editor URL: ' + form.getEditUrl());
+    }
+</script>
+
 <script>
 
     $(document).ready(function() {
