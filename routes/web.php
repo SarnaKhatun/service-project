@@ -5,17 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ServiceController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 
 if (!function_exists('parseLocale')) {
     function parseLocale()
@@ -45,6 +34,9 @@ if (!function_exists('parseLocale')) {
 
 Route::get('/create-service', [ServiceController::class, 'createService'])->name('create.service');
 Route::post('/store-service', [ServiceController::class, 'storeService'])->name('store.service');
+Route::get('/manage-service', [ServiceController::class, 'manageService'])->name('manage.service');
+Route::get('/edit-service/{id}', [ServiceController::class, 'editService'])->name('edit.service');
+Route::post('/update-service/{id}', [ServiceController::class, 'updateService'])->name('update.service');
 
 
 

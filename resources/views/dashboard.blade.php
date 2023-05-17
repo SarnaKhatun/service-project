@@ -64,9 +64,8 @@
                                     <select id="select_box">
                                         <option value="">Select One</option>
                                         <option value="short_ans"  id="short">Short answer</option>
-                                        <option value="paragraph" id="ut">paragraph</option>
                                         <option value="multiple_choice" id="">Multiple Choice</option>
-                                        <option value="checkbox" id="">Checkbox</option>
+                                        <option value="checkbox" id="checkbox">Checkbox</option>
                                         <option value="dropdown" id="">Dropdown</option>
                                         <option value="file_upload" id="">File Upload</option>
                                         <option value="date" id="">Date</option>
@@ -76,8 +75,9 @@
 
                             </div>
                             <div >
-                                <input type="text" id="show_only" >
+                                <input type="text" id="show_only">
                                 <input type="text" id="textt">
+                                <input type="checkbox" id="box">
                             </div>
 
 
@@ -90,22 +90,38 @@
     </section>
 
 
+
+
+
+
 <script>
     var shortAns = document.getElementById('short');
     shortAns.onclick = function () {
         event.preventDefault();
         var textt = document.getElementById('textt');
-        textt.innerHTML.valueOf();
+        document.write(textt);
+    }
+</script>
+
+<script>
+    var checkBox = document.getElementById('checkbox');
+    checkBox.onclick = function () {
+        event.preventDefault();
+        var box = document.getElementById('box');
+        box.valueOf();
     }
 </script>
 
     <script>
-
         $(document).ready(function () {
             $('#select_box').change(function() {
                 $('#show_only').val(this.value);
             });
         });
-
     </script>
 @endsection
+
+
+
+
+
