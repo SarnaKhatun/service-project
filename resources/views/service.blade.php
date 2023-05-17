@@ -59,8 +59,11 @@
                                    <td>{!! $service->status == 'Active' ? 'Active' : 'Inactive' !!}</td>
                                    <td>
                                        <a href="{{route('edit.service', $service->id)}}" class="btn btn-secondary">Edit</a>
-                                       <a href="" class="btn btn-success">Status</a>
-                                       <a href="" class="btn btn-danger">Delete</a>
+                                       <a href="{{route('status.service', $service->id)}}" class="btn btn-success">Status</a>
+                                       <a href="{{route('delete.service', $service->id)}}" class="btn btn-danger" onclick="deleteServ({{$service->id}})">Delete</a>
+                                       <form action="{{route('delete.service', $service->id)}}" method="post" id="delete{{$service->id}}">
+                                           @csrf
+                                       </form>
                                    </td>
                                </tr>
                            @endforeach
@@ -73,6 +76,17 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function deleteServ(id) {
+            event.preventDefault();
+            var Ser = 'Are you sure??';
+            if(Ser)
+            {
+                document.getElementById('delete'+ id).submit();
+            }
+        }
+    </script>
 @endsection
 
 

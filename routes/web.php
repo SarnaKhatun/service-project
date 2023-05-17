@@ -37,6 +37,8 @@ Route::post('/store-service', [ServiceController::class, 'storeService'])->name(
 Route::get('/manage-service', [ServiceController::class, 'manageService'])->name('manage.service');
 Route::get('/edit-service/{id}', [ServiceController::class, 'editService'])->name('edit.service');
 Route::post('/update-service/{id}', [ServiceController::class, 'updateService'])->name('update.service');
+Route::get('/status-service/{id}', [ServiceController::class, 'changeStatus'])->name('status.service');
+Route::post('/delete-service/{id}', [ServiceController::class, 'deleteService'])->name('delete.service');
 
 
 

@@ -16,7 +16,7 @@ class Service extends Model
       'status',
     ];
 
-    public function saveData($request, $id = null)
+    public static function saveData($request, $id = null)
     {
         Service::updateOrCreate(['id' => $id], [
             'name' => $request->name,
